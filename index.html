@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Advisor App</title>
+  </head>
+  <body>
+    <div id="app" v-cloak></div>   
+    <style>
+
+      /*
+       * App Loading Imitation
+       */
+
+      #app{
+          opacity: 1;
+        transition: 1s;
+      }
+
+      #app[v-cloak]{
+          opacity: 0;
+      }
+
+    </style>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

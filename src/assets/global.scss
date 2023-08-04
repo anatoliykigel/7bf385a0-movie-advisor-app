@@ -1,0 +1,287 @@
+$lgBoxShadowDefault: 0px 0px 1.5rem rgba(0, 0, 0, 0.3);
+$mdBoxShadowDefault: 0px 0px 1rem rgba(0, 0, 0, 0.3);
+$smBoxShadowDefault: 0px 0px 0.5rem rgba(0, 0, 0, 0.3);
+$mainWhiteColor: #ffffff;
+$mainGrayColor: #8e999d;
+
+$desktopScreenMinSize: 992px;
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(#212e3e, #0b0e13);
+}
+
+#app {
+  min-height: 100vh;
+  padding: 1rem;
+  display: grid;
+  place-items: start center;
+
+  @media screen and (min-width: $desktopScreenMinSize) {
+    place-items: center;
+  }
+}
+
+.main-form {
+  width: 100%;
+  min-width: calc(375px - 2rem);
+  max-width: 420px;
+  background: linear-gradient(#49595c, #40434a);
+  box-shadow: $mdBoxShadowDefault;
+  padding: 1rem;
+  border-radius: 0.5rem;
+
+  @media screen and (min-width: $desktopScreenMinSize) {
+    width: 960px;
+    max-width: 960px;
+    height: 400px;
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: 1fr 2fr;
+    padding: 2rem;
+  }
+
+  .btn-active {
+    outline: none;
+    margin-top: 1rem;
+    background-color: #07dd7d;
+    width: 100%;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1rem;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    transition: 0.3s;
+    cursor: pointer;
+    box-shadow: $lgBoxShadowDefault;
+
+    &:hover:not([disabled]) {
+      background-color: #07fd7d;
+    }
+
+    &:active:not([disabled]) {
+      background-color: #00bd5d;
+      box-shadow: $mdBoxShadowDefault;
+    }
+  }
+
+  .btn-secondary {
+    background-color: #2b2d31;
+    text-transform: capitalize;
+    color: $mainWhiteColor;
+    width: 100%;
+    font-weight: bold;
+    font-size: 1rem;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    transition: 0.3s;
+    cursor: pointer;
+    box-shadow: $lgBoxShadowDefault;
+
+    &:hover:not([disabled]) {
+      background-color: #202027;
+    }
+    &:active:not([disabled]) {
+      background-color: #1b1d21;
+      box-shadow: $mdBoxShadowDefault;
+    }
+  }
+
+  &__control-section {
+    @media screen and (min-width: $desktopScreenMinSize) {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__control-group {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+
+      h4 {
+        color: $mainGrayColor;
+        width: 80px;
+        overflow: hidden;
+        text-transform: uppercase;
+      }
+
+      select {
+        text-transform: uppercase;
+        color: $mainWhiteColor;
+        border-radius: 4px;
+        background-color: #585b62;
+        padding: 8px;
+        border: none;
+        outline: none;
+        margin: 0;
+        flex-grow: 1;
+        cursor: pointer;
+        appearance: none;
+        background-image: url('./arrow.svg');
+        background-repeat: no-repeat, repeat;
+        background-position: right 0.7em top 50%, 0 0;
+        background-size: 0.65em auto, 100%;
+        transition: 0.15s;
+        box-shadow: $smBoxShadowDefault;
+
+        &:focus {
+          background-color: #767376;
+        }
+      }
+    }
+  }
+
+  &__info-section {
+    &__motivation-title {
+      color: $mainWhiteColor;
+      text-align: center;
+      font-weight: normal;
+      text-shadow: $smBoxShadowDefault;
+      margin: 1rem;
+      line-height: 1.5;
+
+      @media screen and (min-width: $desktopScreenMinSize) {
+        height: 100%;
+        display: grid;
+        place-items: center;
+
+        br {
+          display: none;
+        }
+      }
+    }
+
+    &__movie-wrapper {
+      padding-top: 1rem;
+
+      @media screen and (min-width: $desktopScreenMinSize) {
+        display: grid;
+        height: 100%;
+        grid-template-columns: 214px 1fr;
+        gap: 1rem;
+      }
+
+      img {
+        width: calc(100% - 0.1px);
+        box-shadow: $mdBoxShadowDefault;
+        border-radius: 4px;
+        @media screen and (min-width: $desktopScreenMinSize) {
+        }
+      }
+
+      &__details {
+        padding-top: 1rem;
+
+        @media screen and (min-width: $desktopScreenMinSize) {
+          max-width: 350px;
+          display: flex;
+          flex-direction: column;
+          padding-top: 0.25rem;
+
+          p {
+            margin: 0;
+            margin-top: 1rem;
+          }
+        }
+
+        h2 {
+          color: $mainWhiteColor;
+          margin: 0;
+          text-decoration: underline;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+        }
+
+        .summary {
+          color: $mainGrayColor;
+          font-weight: bold;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+        }
+
+        .description {
+          color: $mainGrayColor;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          line-clamp: 3;
+          -webkit-box-orient: vertical;
+        }
+
+        .see-btn-group {
+          display: grid;
+          grid-template-columns: 2fr 1.5fr;
+          gap: 1rem;
+        }
+      }
+    }
+  }
+}
+
+/*
+ * Helpers
+ */
+
+.transition {
+  transition: 0.3s;
+}
+
+.fa-circle-notch.transition {
+  color: black;
+}
+
+.space {
+  flex-grow: 1;
+}
+
+.data-load-spinner {
+  color: $mainGrayColor;
+  margin-top: 3rem;
+
+  @media screen and (min-width: $desktopScreenMinSize) {
+    margin-top: 0;
+  }
+}
+
+.slide-fade-enter-active {
+  transition: all 0.5s ease;
+}
+
+.slide-fade-leave-active {
+  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  transform: translateY(-20px);
+  opacity: 0;
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 1.05s ease;
+
+  @media screen and (min-width: $desktopScreenMinSize) {
+    transition-duration: 0.9s;
+  }
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
